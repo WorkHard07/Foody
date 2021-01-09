@@ -23,17 +23,16 @@
         <form class="sign-up" action="#">
           <h2>Create login</h2>
           <div>Use your email for registration</div>
-          <input type="text" placeholder="Name" v-model="Username"/>
-          <input type="email" placeholder="Email" v-model="Useremail"/>
-          <input type="password" placeholder="Password" v-model="Password" />
-          <button @click="create">Sign Up</button>
+          <input v-model="Username" type="text" placeholder="Name" />
+          <input v-model="Useremail" type="email" placeholder="Email" />
+          <input v-model="Password" type="password" placeholder="Password" />
+          <button>Sign Up</button>
         </form>
         <form class="sign-in" action="#">
           <h2>Sign In</h2>
           <div>Use your account</div>
-          <input type="email" placeholder="Email" />
-          <input type="password" placeholder="Password" />
-          <a href="#">Forgot your password?</a>
+          <input v-model="Useremail" type="email" placeholder="Email" />
+          <input v-model="Password" type="password" placeholder="Password" />
           <button>Log In</button>
         </form>
       </div>
@@ -63,6 +62,25 @@ export default {
     },
   },
 };
+//  methods: {
+//         async enteruser(){
+//             const userdata = await axios.post('/signin', {
+//                 Useremail : this.useremail,
+//                 Password: this.password
+//             });
+//             if(userdata.data){
+//                 document.cookie = `Username=${userdata.data._id},${userdata.data.Useremail},${userdata.data.Username},${userdata.data.status}`
+//                 this.useremail = '';
+//                 this.password = '';
+//                 window.location.replace('/mainfeed')
+//             } else {
+//                 this.useremail = '';
+//                 this.password = '';
+//                 alert("your information are wrong please check your inputs")
+//             }
+//         }
+//     }
+// }
 </script>
 <style lang="scss">
 body {
@@ -72,14 +90,7 @@ body {
   height: 100vh;
   overflow: hidden;
 }
-form.sign-up {
-    height: 110%;
-    width: 50%;
-}
-form.sign-in {
-    height: 100%;
-    width: 54%;
-}
+
 #app {
   font-family: Tahoma;
   font-size: 1rem;
@@ -111,10 +122,7 @@ form.sign-in {
     transition: transform 0.5s ease-in-out;
     z-index: 100;
   }
-.container.sign-up-active {
-    width: 1133px;
-    height: 646px;
-}
+
   .overlay {
     position: relative;
     left: -100%;

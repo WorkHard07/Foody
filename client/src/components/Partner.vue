@@ -1,8 +1,8 @@
 <template>
-<div>
-    <h2>Do you want to deliver your <br>clients in a easy way ?
- This solution is for you :<br>
- it allows you to receive <br>orders  to locate your clients <br> and track orders , isn't that great</h2>
+<div id="parag">
+    <h2  >Do you want to deliver your clients in a easy way ?
+ This solution is for you <br>
+ it allows you to receive  orders  to locate your clients  and track orders ,<br> isn't that great</h2>
         </div>
 </template>
 <script>
@@ -11,11 +11,11 @@ export default {
   name: "partner"
 }
 </script>
-<style >
+<style  >
 h2 {
     position: absolute;
     top: 117%;
-    left: 286px;
+    left: 6px;
 }
 h2{
     color: #e50100;

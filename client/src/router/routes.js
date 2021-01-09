@@ -1,6 +1,5 @@
 import Router from "vue-router";
 import Vue from "vue";
-
 Vue.use(Router);
 export default new Router({
   mode: "history",
@@ -15,11 +14,26 @@ export default new Router({
       name: "Signin",
       component: () => import("../components/Signin.vue"),
      },
+    //  {
+    //   path: "/user",
+    //   name: "User",
+    //   component: () => import("../components/User.vue"),
+    //  },
      {
       path: "/contacus",
       name: "Contacus",
       component: () => import("../components/Contacus.vue"),
      },
+     {
+      path: "/admin",
+      name: "Admin",
+      component: () => import("../components/admin/Admin.vue"),
+     },
+     {
+      path: "/restaurent",
+      name: "Restaurent",
+      component: () => import("../components/resto/restaurentowner.vue"),
+     }
     //  {
     //   path: "/user",
     //   name: "User",

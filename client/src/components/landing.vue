@@ -1,6 +1,6 @@
 <template>
   <div class="hello">
-     <router-link to ="/signin"><vs-button line-position="top" line-origin="right" color="dark" type="line">Sign in</vs-button></router-link>
+    <vs-button   color="dark" type="line" @click="gosignin">Sign in </vs-button>
     <img class="logos" id="pizza" src="../assets/pizza.png" width="95px" />
     <img class="logos" id="cake" src="../assets/cake.png" width="200px" />
     <img class="logos" id="sandwich" src="../assets/sandwich.png" width="130px" />
@@ -9,7 +9,6 @@
     <img id="restaurant" src="../assets/resaturant.png" width="300px" /> 
   <Partner/>
   <Footer/>
-  
  </div>
 </template>
 <script>
@@ -20,6 +19,11 @@ export default {
   components:{
     Footer,
     Partner
+  },
+  methods:{
+    gosignin(){
+      this.$router.push('/signin')
+    }
   }
 };
 </script>

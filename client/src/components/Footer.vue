@@ -30,7 +30,7 @@ footer {
   left: 0;
   bottom: 0;
   width: 80%;
-  font-family: "Lucida Console", "Courier New", monospace;
+  font-family: 'Gloria Hallelujah', cursive;
 }
 .content {
   position: absolute;
