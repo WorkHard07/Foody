@@ -1,4 +1,4 @@
-// const {Router} = require('express');
+//------------------ SingUp process ---------------------//
 var express = require("express");
 var router = express.Router();
 router.post("/signup", async (req, res) => {
@@ -11,14 +11,15 @@ router.post("/signup", async (req, res) => {
     res.status(500).json({ message: err.message });
   }
 });
+//------------------ SingIn process ---------------------//
 router.post("/signin", async (req, res) => {
   console.log(req.body);
   const entrie = req.body;
   try {
-    const compare = await Userdata.findOne({ useremail: entrie.useremail });
+    const compare = await Userdata.findOne({ Useremail: entrie.Useremail });
     if (!compare) throw new Error("signin opperation not done !");
     let confirmation = false;
-    if (compare.password === entrie.password) {
+    if (compare.Password === entrie.Password) {
       confirmation = true;
       res.status(200).json(compare);
     } else {

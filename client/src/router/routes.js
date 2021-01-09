@@ -15,10 +15,10 @@ export default new Router({
       component: () => import("../components/Signin.vue"),
      },
     //  {
-    //   path: "/user",
-    //   name: "User",
+    // /  path: "/user",
+    //    name: "user",
     //   component: () => import("../components/User.vue"),
-    //  },
+    //   },
      {
       path: "/contacus",
       name: "Contacus",
