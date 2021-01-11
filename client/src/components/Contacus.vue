@@ -1,6 +1,5 @@
 <template>
 <div>
- Contact us 
 </div>
 
 </template>
@@ -10,8 +9,6 @@ export default {
 }
 </script>
 <style scoped>
-body{
-    background-color: whitesmoke;
-}
+
 
 </style>

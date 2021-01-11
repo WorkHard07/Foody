@@ -22,7 +22,7 @@ export default {
   },
   methods:{
     gosignin(){
-      this.$router.push('/signin')
+      this.$router.push('/signin');  
     }
   }
 };

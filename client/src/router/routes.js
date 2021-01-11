@@ -14,14 +14,14 @@ export default new Router({
       name: "Signin",
       component: () => import("../components/Signin.vue"),
      },
-    //  {
-    // /  path: "/user",
-    //    name: "user",
-    //   component: () => import("../components/User.vue"),
-    //   },
+    {
+     path: "/user",
+       name: "User",
+      component: () => import("../components/user/User.vue"),
+       },
      {
-      path: "/contacus",
-      name: "Contacus",
+      path: "/contactus",
+      name: "contacus",
       component: () => import("../components/Contacus.vue"),
      },
      {

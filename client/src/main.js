@@ -5,7 +5,11 @@ import router from "./router/routes";
 import Vuesax from 'vuesax';
 import 'vuesax/dist/vuesax.css';
 import VueRouter from 'vue-router';
+Vue.filter('to-uppercase' ,function(value){
+return value.toUpperCase()
+});
 Vue.use(Vuesax)
+
 Vue.use(VueRouter);
 Vue.config.productionTip = false;
 new Vue({
