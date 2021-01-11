@@ -25,15 +25,16 @@ export default new Router({
       component: () => import("../components/Contacus.vue"),
      },
      {
+      path: "/restaurent",
+      name: "restoowner",
+      component: () => import("../components/resto/Restoowner.vue"),
+     },
+     {
       path: "/admin",
       name: "Admin",
       component: () => import("../components/admin/Admin.vue"),
      },
-     {
-      path: "/restaurent",
-      name: "Restaurent",
-      component: () => import("../components/resto/restaurentowner.vue"),
-     }
+    
     //  {
     //   path: "/user",
     //   name: "User",
