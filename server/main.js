@@ -1,6 +1,6 @@
 const express = require("express");
 const app = express();
-const port = 3000;
+const port = process.env.PORT|| 3000;
 const usersRoutes = require("./routes/users.js");
 const mongoose = require("mongoose");
 const cors = require("cors");
