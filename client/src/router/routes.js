@@ -35,25 +35,16 @@ export default new Router({
       component: () => import("../components/admin/Admin.vue"),
      },
     
-    //  {
-    //   path: "/user",
-    //   name: "User",
-    //   component: () => import("../components/User.vue"),
-    // },
-    // {
-    //   path: "/user/menu",
-    //   name: "menu",
-    //   component: () => import("../components/menu.vue"),
-    // },
-    // {
-    //   path: "/resaturant/menu",
-    //   name: "restaurantmenu",
-    //   component: () => import("../components/restaurantmenu.vue"),
-    // },
-    // {
-    //   path: "/resaturant/notification",
-    //   name: "notification",
-    //   component: () => import("../components/restaurantnot.vue"),
-    // },
+     {
+      path: "/menu",
+      name: "menu",
+      component: () => import("../components/user/Menu.vue"),
+    },
+    {
+      path: "/create",
+      name: "create",
+      component: () => import("../components/resto/create.vue"),
+    },
+    
   ],
 });

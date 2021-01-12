@@ -5,6 +5,8 @@ import router from "./router/routes";
 import Vuesax from 'vuesax';
 import 'vuesax/dist/vuesax.css';
 import VueRouter from 'vue-router';
+import JQuery from 'jquery'
+window.$ = JQuery
 Vue.filter('to-uppercase' ,function(value){
 return value.toUpperCase()
 });
