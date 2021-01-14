@@ -43,8 +43,7 @@ export default new Router({
     {
       path: "/create",
       name: "create",
-      component: () => import("../components/resto/create.vue"),
+      component: () => import("../components/resto/Restoowner.vue"), // added
     },
-    
   ],
 });

@@ -1,12 +1,13 @@
 <template>
   <div class="hello">
+
     <vs-button   color="dark" type="line" @click="gosignin">Sign in </vs-button>
     <img class="logos" id="pizza" src="../assets/pizza.png" width="95px" />
     <img class="logos" id="cake" src="../assets/cake.png" width="200px" />
     <img class="logos" id="sandwich" src="../assets/sandwich.png" width="130px" />
     <img class="logos" id="cake2" src="../assets/cake2.png" width="160px" />
     <img class="logos" id="chicken" src="../assets/chicken.png" width="230px" />
-    <img id="restaurant" src="../assets/resaturant.png" width="300px" /> 
+    <img id="restaurant" src="../assets/restaurent.png" width="300px" /> 
   <Partner/>
   <Footer/>
  </div>
@@ -38,15 +39,21 @@ body {
   background-size: 85%;
   height: 100vh;
 }
+button#become {
+    position: absolute;
+    top: 1136px;
+    left: 1264px;
+}
+
 button.vs-component.vs-button.vs-button-dark.vs-button-line {
     position: absolute;
     top: 7px;
     left: 1441px;
 }
 img#restaurant {
-  position: absolute;
-  top: 741px;
-  left: 1097px;
+    position: absolute;
+    top: 741px;
+    left: 0px;
 }
 /* #signin{
   position: absolute;

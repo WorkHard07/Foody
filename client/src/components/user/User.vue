@@ -8,8 +8,7 @@
       <div class="card" v-for="(post, i) in filteredList" :key="i">
         <!-- <a v-bind:href="post.link" target="_blank"> -->
         <div  id="title">
-         <router-link to="/menu"> <img :src="post.img" /></router-link>
-                 
+         <router-link to="/menu"> <img :src="post.img" /></router-link>        
         {{ post.title  }}
         </div>
       </div>
@@ -32,18 +31,19 @@ export default {
       search: "",
       postList: [
         new Post( 
-          "Panini","Mourouj",
+          "Peppi panini ","Mourouj",
           "https://peppipanini.ca/media/cache/99/92/9992978bac39c00276c2e5c5bc81bc95.png"
         ),
         new Post(
           
-          "pizza","Ariena",
-          "https://media-cdn.tripadvisor.com/media/photo-s/12/0c/ca/31/logo-of-savoor-restaurant.jpg"
+          "MCdonadls",
+          "Menzah",
+          "https://cdn.pixabay.com/photo/2015/10/20/21/05/mcdonald-998495_640.png"
         ),
         new Post(
           
           "Che gusto","Ariena",
-          "https://10619-2.s.cdn12.com/rests/original/313_509303845.jpg"
+          "https://www.gustocheemoziona.com/wp-content/uploads/2017/12/GUSTO-CHE-EMOZIONA-TRASP.png"
         ),
         new Post(
          
@@ -58,22 +58,22 @@ export default {
         new Post(
          
           "Baguette", "Sokra",
-          "https://www.tunisietravail.net/uploads/2020/01/baguetteetbaguette-baguette-et-baguette.png"
+          "https://annugeo.com/images/photos/ag42-baguette_baguette_tunisie.jpg"
         ),
         new Post(
           
           "Burgerking","Naser",
-          "https://logos-world.net/wp-content/uploads/2020/04/Burger-King-Logo-1999-present.jpg"
+          "https://assets.stickpng.com/images/5842996fa6515b1e0ad75add.png"
         ),
         new Post(
           
           "Burger","Mourouj",
-          "https://image.freepik.com/vecteurs-libre/burger-logo_1366-144.jpg"
+          "https://images.vexels.com/media/users/3/129606/isolated/preview/74fb78d3222ba12833ea9275c53a4935-burger-logo-by-vexels.png"
         ),
         new Post(
           
           "PizzaHut","Sokra",
-          "https://i.pinimg.com/originals/5d/c3/ca/5dc3cae64ecb116dd17aefdf8a969da0.jpg"
+          "https://assets.stickpng.com/images/5842997fa6515b1e0ad75adf.png"
         ),
         new Post(
           

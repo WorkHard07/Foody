@@ -1,8 +1,6 @@
 <template>
 <div id="parag">
-    <h2  >Do you want to deliver your clients in a easy way ?
- This solution is for you <br>
- it allows you to receive  orders  to locate your clients  and track orders ,<br> isn't that great</h2>
+    
                <vs-button id="become" color="warning" type="filled " @click="go">Become a partner</vs-button>
 
      </div>
@@ -28,14 +26,23 @@ h2 {
 }
 button#become {
     position: absolute;
-    top: 959px;
-    left: 936px;
+    top: 1136px;
+    left: 1264px;
 }
+
 .h6{
     color:whitesmoke
 }
+img#restaurant {
+    width: 100%;
+}
 h2{
     color: #e50100;
+}
+img#restaurant {
+    position: absolute;
+    top: 741px;
+    left: 0px;
 }
 h2{
     font-family: "Lucida Console", "Courier New", monospace;

@@ -61,7 +61,7 @@ export default {
   },
 };
 </script>
-<style lang="scss">
+<style lang="scss" scoped>
 body {
   margin: 0;
   padding: 0;
@@ -81,12 +81,14 @@ form.sign-in {
   font-family: Tahoma;
   font-size: 1rem;
   color: #222;
-  background-color: #092525;
+  background-image: url("https://www.teahub.io/photos/full/6-63475_fast-food-background-hd.jpg");
   width: 100%;
   height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
+  background-repeat: no-repeat;
+
 }
 
 .container {
@@ -96,7 +98,7 @@ form.sign-in {
   border-radius: 10px;
   overflow: hidden;
   box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2), 0 10px 10px rgba(0, 0, 0, 0.2);
-  background: linear-gradient(to bottom, #efefef, #ccc);
+  background: linear-gradient(to bottom, #a87c02, rgb(204, 204, 204));
 
   .overlay-container {
     position: absolute;
@@ -117,7 +119,7 @@ form.sign-in {
     left: -100%;
     height: 100%;
     width: 200%;
-    background: linear-gradient(to bottom right, #f8b101, #f8b101);
+    background: linear-gradient(to bottom right, #f1ad46, #f8b101);
     color: #fff;
     transform: translateX(0);
     transition: transform 0.5s ease-in-out;
@@ -166,7 +168,7 @@ a {
 button {
   border-radius: 20px;
   border: 1px solid #f8b101;
-  background-color: #f8b101;
+  background-color: #f3b008;
   color: #fff;
   font-size: 1rem;
   font-weight: bold;
@@ -201,7 +203,7 @@ form {
   width: calc(50% - 120px);
   height: calc(100% - 180px);
   text-align: center;
-  background: linear-gradient(to bottom, #f8b101, #ccc);
+  background: linear-gradient(to bottom, #f8b600, #ccc);
   transition: all 0.5s ease-in-out;
 
   div {
