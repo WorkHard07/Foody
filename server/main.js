@@ -1,16 +1,18 @@
 const express = require("express");
 const app = express();
 const port = process.env.PORT|| 3000;
+
 const usersRoutes = require("./routes/users.js");
 const mongoose = require("mongoose");
 const cors = require("cors");
 const bcrypt = require("bcrypt");
 const User = require("./models/userdata.js");
+app.use('/api',require('./routes/menu.route')) // added
 app.use(express.static("../client/public"));
 app.use(express.json());
 app.use(cors());
 //----- connectin to mongodb---- //
-mongoose.connect("mongodb://localhost:27017/foody", {
+mongoose.connect('mongodb+srv://hichem:1-hichemmarwa@cluster0.mkmvc.mongodb.net/<dbname>?retryWrites=true&w=majority', {
   useNewUrlParser: true,
 });
 /////----------------------------------/////

@@ -45,5 +45,10 @@ export default new Router({
       name: "create",
       component: () => import("../components/resto/Restoowner.vue"), // added
     },
+    {
+      path:"/createMenu",// added new for creation of the menu
+      name:"createMenu",
+      component:() =>import("../components/resto/CreateMenu.vue")
+    },
   ],
 });

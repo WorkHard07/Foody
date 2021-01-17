@@ -1,5 +1,8 @@
 // @ts-nocheck
 import Vue from "vue";
+import VueMaterial from 'vue-material'
+import 'vue-material/dist/vue-material.min.css'
+import 'vue-material/dist/theme/default.css'
 import App from "./App.vue";
 import router from "./router/routes";
 import Vuesax from 'vuesax';
@@ -15,6 +18,7 @@ Vue.use(IconsPlugin)
 Vue.filter('to-uppercase' ,function(value){
 return value.toUpperCase()
 });
+Vue.use(VueMaterial)
 Vue.use(Vuesax)
 Vue.use(VueRouter);
 Vue.config.productionTip = false;
