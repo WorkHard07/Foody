@@ -18,7 +18,7 @@
             </div>
           </div>
         </div>
-        <form class="sign-up" action="#">
+        <form class="sign-up">
           <h2>Create login</h2>
           <div>Use your email for registration</div>
           <input type="text" placeholder="Name" v-model="Username" />
@@ -31,7 +31,7 @@
           <div>Use your account</div>
           <input type="email" placeholder="Email" v-model="Useremail" />
           <input type="password" placeholder="Password" v-model="Password" />
-          <button>Log In</button>
+          <button type="button" @click="login">Log In</button>
         </form>
       </div>
     </article>
@@ -55,9 +55,20 @@ export default {
         Usermail: this.Useremail,
         Username: this.Username,
         Password: this.Password,
+      
       };
+
       axios.post("http://localhost:3000/signin", user);
     },
+    login(){
+   var user ={
+        Usermail: this.Useremail,
+        Password: this.Password,
+   }
+         axios.post("http://localhost:3000/signup", user);
+
+
+    }
   },
 };
 </script>
@@ -98,7 +109,7 @@ form.sign-in {
   border-radius: 10px;
   overflow: hidden;
   box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2), 0 10px 10px rgba(0, 0, 0, 0.2);
-  background: linear-gradient(to bottom, #a87c02, rgb(204, 204, 204));
+  background: linear-gradient(to bottom, #ebac02, rgb(204, 204, 204));
 
   .overlay-container {
     position: absolute;

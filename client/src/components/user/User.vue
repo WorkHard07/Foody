@@ -13,10 +13,12 @@
         </div>
       </div>
     </div>
+    <stars/>
   </div>
 </template>
 
 <script>
+import stars from './Stars.vue'
 class Post {
   constructor(title, location, img) {
     this.title = title;
@@ -26,6 +28,9 @@ class Post {
 }
 export default {
   name: "user",
+  components:{
+    stars
+  },
   data: function() {
     return {
       search: "",
@@ -35,23 +40,19 @@ export default {
           "https://peppipanini.ca/media/cache/99/92/9992978bac39c00276c2e5c5bc81bc95.png"
         ),
         new Post(
-          
           "MCdonadls",
           "Menzah",
           "https://cdn.pixabay.com/photo/2015/10/20/21/05/mcdonald-998495_640.png"
         ),
-        new Post(
-          
+        new Post(          
           "Che gusto","Ariena",
           "https://www.gustocheemoziona.com/wp-content/uploads/2017/12/GUSTO-CHE-EMOZIONA-TRASP.png"
         ),
         new Post(
-         
           "KFC", "menzah",
           "https://upload.wikimedia.org/wikipedia/fr/thumb/b/bf/KFC_logo.svg/1024px-KFC_logo.svg.png"
         ),
-        new Post(
-         
+        new Post( 
           "Plan B", "Menzah 5",
           "https://medias.monresto.net/partenaires/restaurant/P_191018024745.png"
         ),
@@ -70,13 +71,11 @@ export default {
           "Burger","Mourouj",
           "https://images.vexels.com/media/users/3/129606/isolated/preview/74fb78d3222ba12833ea9275c53a4935-burger-logo-by-vexels.png"
         ),
-        new Post(
-          
+        new Post(          
           "PizzaHut","Sokra",
           "https://assets.stickpng.com/images/5842997fa6515b1e0ad75adf.png"
         ),
-        new Post(
-          
+        new Post(         
           "Mr chef","Ariena",
           "https://thumbs.dreamstime.com/b/print-182159020.jpg"
         ),

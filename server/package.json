@@ -2,6 +2,7 @@
   "name": "server",
   "version": "1.0.0",
   "description": "",
+  "type": "module",
   "dependencies": {
     "bcrypt": "^5.0.0",
     "cors": "^2.8.5",
@@ -14,7 +15,7 @@
   "devDependencies": {},
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node main.js"
+    "start": "nodemon main.js"
   },
   "author": "",
   "license": "ISC"
