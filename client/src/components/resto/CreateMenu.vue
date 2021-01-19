@@ -89,6 +89,10 @@
 
 <script>
 import axios from "axios"
+<<<<<<< HEAD
+=======
+
+>>>>>>> cd10d00c902922f4658c3dc08d5a7cae3db25aa4
 export default {
     name: "CreateMenu",
     data() {
@@ -101,12 +105,26 @@ export default {
             picture:"",
             price:"",
             url:"http://localhost/api"
+<<<<<<< HEAD
         }
     },
     async created(){
         
         this.getAll()
     },
+=======
+
+
+        }
+    },
+
+    async created(){
+        
+        this.getAll()
+
+    },
+
+>>>>>>> cd10d00c902922f4658c3dc08d5a7cae3db25aa4
     methods:{
         async getAll(){
             const res= await axios.get(this.url);
@@ -118,6 +136,10 @@ export default {
             this.picture="",
             this.price=""
         },
+<<<<<<< HEAD
+=======
+
+>>>>>>> cd10d00c902922f4658c3dc08d5a7cae3db25aa4
         async getOne(menu){
             this.id=menu._id
             this.cathegory=menu.cathegory
@@ -125,7 +147,13 @@ export default {
             this.description=menu.description
             this.picture=menu.picture
             this.price=menu.price
+<<<<<<< HEAD
         },
+=======
+
+        },
+
+>>>>>>> cd10d00c902922f4658c3dc08d5a7cae3db25aa4
         async postMenu(){
             if(this.id==0){
             await axios.post(this.url,{
@@ -156,6 +184,7 @@ export default {
                 })
                 this.getAll()
             }
+<<<<<<< HEAD
         },
         async deleteOne(id){
              await axios.delete(`${this.url}/${id}`)
@@ -168,4 +197,26 @@ export default {
 
 <style scoped >
   
+=======
+
+        },
+
+        async deleteOne(id){
+             await axios.delete(`${this.url}/${id}`)
+             this.getAll()
+
+        }
+
+    }
+
+}
+
+
+</script>
+
+
+<style>
+
+
+>>>>>>> cd10d00c902922f4658c3dc08d5a7cae3db25aa4
 </style>

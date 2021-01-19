@@ -9,7 +9,12 @@ import  User from "./models/userdata.js";
 const app = express();
 const port = process.env.PORT|| 3000;
 
-
+const usersRoutes = require("./routes/users.js");
+const mongoose = require("mongoose");
+const cors = require("cors");
+const bcrypt = require("bcrypt");
+const User = require("./models/userdata.js");
+app.use('/api',require('./routes/menu.route')) // added
 app.use(express.static("../client/public"));
 app.use(express.json());
 app.use(cors());
