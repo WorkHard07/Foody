@@ -1,11 +1,13 @@
 <template>
     <div>
+        <ul>
+ 
+  <li  @click="gomenu">Orders</li>
+  
 
+</ul>
    <md-card>
-
      <md-card-content>
-        
-
        <input v-model="id" type="hidden">
 
         <md-field>
@@ -80,7 +82,10 @@
       
        
     </md-table>
+<div>
 
+
+</div>
 </div>
 
 </template>
@@ -88,9 +93,10 @@
 
 
 <script>
-import axios from "axios"
+import axios from "axios";
 export default {
     name: "CreateMenu",
+    
     data() {
         return{
             menus:[],
@@ -108,6 +114,10 @@ export default {
         this.getAll()
     },
     methods:{
+    gomenu(){
+      this.$router.push('/restohome');  
+    },
+    
         async getAll(){
             const res= await axios.get(this.url);
             this.menus=res.data;
@@ -168,8 +178,28 @@ export default {
     }
 }
 </script>
+<style scoped >
+  ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: #333;
+}
 
+li {
+  float: left;
+}
 
-<style  >
-  
+li  {
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+li :hover {
+  background-color: #111;
+}
 </style>
