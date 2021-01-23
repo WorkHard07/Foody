@@ -19,6 +19,7 @@ methods:{
 }
 </script>
 <style  >
+
 h2 {
     position: absolute;
     top: 117%;
@@ -26,8 +27,8 @@ h2 {
 }
 button#become {
     position: absolute;
-    top: 1136px;
-    left: 1264px;
+    top: 1045px;
+    left: 1059px;
 }
 
 .h6{
@@ -41,7 +42,7 @@ h2{
 }
 img#restaurant {
     position: absolute;
-    top: 741px;
+ top: 730px;;
     left: 0px;
 }
 h2{

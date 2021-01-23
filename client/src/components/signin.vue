@@ -55,20 +55,43 @@ export default {
         Usermail: this.Useremail,
         Username: this.Username,
         Password: this.Password,
-      
       };
-
-      axios.post("http://localhost:3000/signin", user);
+      axios.post("http://localhost:3000/signup", user);
     },
-    login(){
-   var user ={
+    login() {
+      var user = {
         Usermail: this.Useremail,
         Password: this.Password,
-   }
-         axios.post("http://localhost:3000/signup", user);
-
-
-    }
+      };
+      axios
+        .post("http://localhost:3000/signin", user)
+        .then((response) => {
+          console.log(response.data);
+          if (response.data) {
+            console.log(response.data);
+            document.cookie = `username=${response.data.user._id},email=${response.data.user.Usermail}`;
+            this.Useremail = "";
+            this.Password = "";
+            window.location.replace("/user");
+          }
+        })
+        .catch((error) => {
+          this.useremail = "";
+          this.password = "";
+          alert("your informations are wrong please check your inputs");
+          console.log(error);
+        });
+      // if(user.data){
+      //                 document.cookie = `username=${user.data._id},${user.data.useremail}`
+      //                 this.Useremail = '';
+      //                 this.Password = '';
+      //                 window.location.replace('/user')
+      //             } else {
+      //                 this.useremail = '';
+      //                 this.password = '';
+      //                 alert("your informations are wrong please check your inputs")
+      //             }
+    },
   },
 };
 </script>
@@ -99,7 +122,6 @@ form.sign-in {
   justify-content: center;
   align-items: center;
   background-repeat: no-repeat;
-
 }
 
 .container {

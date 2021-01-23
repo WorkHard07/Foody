@@ -1,165 +1,121 @@
-<template>   
-    <div class="container" id="create-article-div">
-     <h2> Create restaurant </h2>
-        <b-form>
-        <b-form-group
-            id="input-group-1"
-            label="name :"
-            label-for="input-1">
-        <b-form-input
-          id="input-1"
-          v-model="name"
-          type="text"
-          placeholder="Enter name"
-          required></b-form-input>
-      </b-form-group>
-      <b-form-group
-            id="input-group-1"
-            label="restaurant name :"
-            label-for="input-1">
-        <b-form-input
-          id="input-1"
-          v-model="restaurantName"
-          type="text"
-          placeholder="Enter restaurant name"
-          required></b-form-input>
-      </b-form-group>
-       <b-form-group
-            id="input-group-1"
-            label="address :"
-            label-for="input-1">
-        <b-form-input
-          id="input-1"
-          v-model="address"
-          type="text"
-          placeholder="Enter address"
-          required></b-form-input>
-      </b-form-group>
-      <b-form-group
-            id="input-group-1"
-            label="logo :"
-            label-for="input-1">
-        <b-form-input
-          id="input-1"
-          v-model="logo"
-          type="text"
-          placeholder="Enter logo"
-          required></b-form-input>
-      </b-form-group>
-      <b-form-group
-            id="input-group-1"
-            label="email :"
-            label-for="input-1">
-        <b-form-input
-          id="input-1"
-          v-model="email"
-          type="text"
-          placeholder="Enter email"
-          required></b-form-input>
-      </b-form-group>
-       <b-form-group
-            id="input-group-1"
-            label="phone number :"
-            label-for="input-1">
-        <b-form-input
-          id="input-1"
-          v-model="phoneNumber"
-          type="text"
-          placeholder="Enter phone number"
-          required></b-form-input>
-      </b-form-group>
-      <b-form-group
-            id="input-group-1"
-            label="CIN :"
-            label-for="input-1">
-        <b-form-input
-          id="input-1"
-          v-model="cin"
-          type="text"
-          placeholder="Enter cin"
-          required></b-form-input>
-      </b-form-group>
-      <b-form-group
-            id="input-group-1"
-            label="User name :"
-            label-for="input-1">
-        <b-form-input
-          id="input-1"
-          v-model="userName"
-          type="text"
-          placeholder="Enter user name"
-          required></b-form-input>
-      </b-form-group>
-      <b-form-group
-            id="input-group-1"
-            label="Password :"
-            label-for="input-1">
-        <b-form-input
-          id="input-1"
-          v-model="password"
-          type="text"
-          placeholder="Enter password"
-          required></b-form-input>
-      </b-form-group>
-    <div class="confim-infirm">
-      <b-button class="submit-butn-not" type="submit" variant="primary" @click="postResto">Submit</b-button>
-      
-    </div>
-    </b-form>
-    </div>
-    
- 
+<template>
+  <div>
+    <md-card>
+      <md-card-content>
+        <md-field>
+          <label for="address">address</label>
+          <md-select v-model="address" name="address" id="cathegory">
+            <md-option value="Tunis">Tunis</md-option>
+            <md-option value="Ariana">Ariana</md-option>
+            <md-option value="Manouba">Manouba</md-option>
+            <md-option value="BenArous">Ben Arous</md-option>
+          </md-select>
+        </md-field>
+        <md-field>
+          <md-input type="text" v-model="name" placeholder="name"> </md-input>
+        </md-field>
+        <md-field>
+          <md-input
+            type="text"
+            v-model="restaurantName"
+            placeholder="restaurantName"
+          >
+          </md-input>
+        </md-field>
+
+        <md-field>
+          <label> picture </label>
+          <md-file v-model="picture" accept="image/*" />
+        </md-field>
+
+        <md-field>
+          <md-input type="email" v-model="email" placeholder="email">
+          </md-input>
+        </md-field>
+
+        <md-field>
+          <md-input type="password" v-model="password" placeholder="password">
+          </md-input>
+        </md-field>
+
+        <md-button @click="postResto" class="md-primary md-raised"
+          >Save</md-button
+        >
+      </md-card-content>
+    </md-card>
+  </div>
 </template>
 
 <script>
-
- import axios from "axios";
+import axios from "axios";
 
 export default {
-  name: "restoowner",
+  name: "RestoOwner",
   data() {
     return {
-      name:'',
-      restaurantName:'',
-      address:'',
-      logo:'',
-      email:'',
-      phoneNumber:'',
-      cin:'',
-      username:'',
-      password:''
-    }
+      name: "",
+      restaurantName: "",
+      picture: "",
+      address: "",
+      email: "",
+      password: "",
+      url: "http://localhost:3000/api/resto",
+    };
+  },
+
+  async created() {
+    this.clearAll();
+  },
+
+  methods: {
+    async clearAll() {
+      (this.name = ""),
+        (this.restaurantName = ""),
+        (this.picture = ""),
+        (this.address = ""),
+        (this.email = ""),
+        (this.password = "");
     },
-  methods:{
-      async postResto(){
-          const newResto = await axios.post('/createResto', {//  suggestion for route for restaurant creation
-            name: this.name,
-            restaurantName: this.restaurantName,
-            address: this.address,
-            logo:this.logo,
-            email:this.email,
-            phoneNumber:this.phoneNumber,
-            cin:this.cin,
-            username:this.username,
-            password:this.password
-          });
-            if(newResto){
-                alert(`Request submited, thank you for your trust ${this.name}`)
-            this.name='',
-            this.restaurantName='',
-            this.address='',
-            this.logo='',
-            this.email='',
-            this.phoneNumber='',
-            this.cin='',
-            this.username='',
-            this.password
-     
-            }
-            
-        }
-  }
+
+    async postResto() {
+      console.log(this.url);
+      await axios.post(this.url, {
+        name: this.name,
+        restaurantName: this.restaurantName,
+        picture: this.picture,
+        address: this.address,
+        email: this.email,
+        password: this.password,
+      });
+
+      this.clearAll();
+    },
+  },
 };
 </script>
-<style scoped>
+
+<style   >
+body{
+    background-image: url("https://s1.1zoom.me/b6244/313/Fast_food_Hamburger_Hot_dog_Colored_background_523442_1920x1080.jpg");
+
+}
+body {
+    margin: 0;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5;
+    color: #dc3545;
+    text-align: left;
+    background-color: #fff;
+}
+.md-card-content {
+    width: 411px;
+    height: -69px;
+}
+.md-card-content {
+    position: absolute;
+    top: 101px;
+    left: 491px;
+}
 </style>

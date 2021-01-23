@@ -7,12 +7,12 @@ export default new Router({
     {
       path: "/",
       name: "Landing",
-      component: () => import("../components/Landing.vue"),
+      component: () => import("../components/landing.vue"),
     },
     {
       path: "/signin",
       name: "Signin",
-      component: () => import("../components/Signin.vue"),
+      component: () => import("../components/signin.vue"),
      },
     {
      path: "/user",
@@ -24,11 +24,7 @@ export default new Router({
       name: "contacus",
       component: () => import("../components/Contacus.vue"),
      },
-     {
-      path: "/restaurent",
-      name: "restoowner",
-      component: () => import("../components/resto/Restoowner.vue"),
-     },
+   
      {
       path: "/admin",
       name: "Admin",
@@ -43,12 +39,13 @@ export default new Router({
     {
       path: "/create",
       name: "create",
-      component: () => import("../components/resto/Restoowner.vue"), // added
+      component: () => import("../components/resto/RestoOwner.vue"), // added
     },
     {
       path:"/createMenu",// added new for creation of the menu
       name:"createMenu",
       component:() =>import("../components/resto/CreateMenu.vue")
     },
+    
   ],
 });

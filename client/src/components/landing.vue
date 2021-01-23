@@ -9,16 +9,16 @@
     <img class="logos" id="chicken" src="../assets/chicken.png" width="230px" />
     <img id="restaurant" src="../assets/restaurent.png" width="300px" /> 
   <Partner/>
-  <Footer/>
+  <!-- <Footer/> -->
  </div>
 </template>
 <script>
-import Footer from './Footer.vue';
+// import Footer from './Footer.vue';
 import Partner from './Partner.vue';
 export default {
   name: "Landing",
   components:{
-    Footer,
+    // Footer,
     Partner
   },
   methods:{
@@ -29,7 +29,7 @@ export default {
 };
 </script>
 <!-- Add "scoped" attribute to limit CSS to this component only -->
-<style>
+<style  >
 body {
   background-color: #f8b101;
 }
@@ -39,22 +39,12 @@ body {
   background-size: 85%;
   height: 100vh;
 }
-button#become {
-    position: absolute;
-    top: 1136px;
-    left: 1264px;
-}
-
 button.vs-component.vs-button.vs-button-dark.vs-button-line {
     position: absolute;
     top: 7px;
     left: 1441px;
 }
-img#restaurant {
-    position: absolute;
-    top: 741px;
-    left: 0px;
-}
+
 /* #signin{
   position: absolute;
   left: 93%

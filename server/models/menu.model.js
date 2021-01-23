@@ -1,34 +1,32 @@
-const  mongoose= require('mongoose')
-const Schema = mongoose.Schema
-menuSchema= new Schema({
-    cathegory:{
-        type:String,
-        /*enum:['pizzas','sandwiches','snacks','other'],*/
-        required:true
-    },
-    name:{
-        type:String,
-        required:true
-    },
-    description:{
-        type:String,
-        required:true
+import mongoose from "mongoose";
+const Schema = mongoose.Schema;
+const menuSchema = new Schema({
+  cathegory: {
+    type: String,
+    /*enum:['pizzas','sandwiches','snacks','other'],*/
+    required: true,
+  },
+  name: {
+    type: String,
+    required: true,
+  },
+  description: {
+    type: String,
+    required: true,
+  },
+  picture: {
+    type: String,
+    required: true,
+  },
 
-    },
-    picture:{
-        type:String,
-        required:true
-    },
+  price: {
+    type: Number,
+    required: true,
+  },
+  resto: {
+    type: Schema.Types.ObjectId,
+    ref: "resto",
+  },
+});
 
-    price:{
-        type:Number,
-        required:true
-
-    }
-
-
-    
-    
-})
-
-module.exports=mongoose.model('Menu',menuSchema)
+export default mongoose.model("Menu", menuSchema);

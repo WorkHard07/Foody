@@ -20,11 +20,9 @@
     "sass-loader": "^10.1.0",
     "vue": "^2.6.12",
     "vue-material": "^1.0.0-beta-15",
-<<<<<<< HEAD
-=======
     "vue-router": "^3.4.9",
->>>>>>> cd10d00c902922f4658c3dc08d5a7cae3db25aa4
     "vuesax": "^3.12.2",
+    "vuex": "^3.6.0",
     "vuex-search": "^2.2.5"
   },
   "devDependencies": {

@@ -22,6 +22,7 @@ const UserdataSchema = new mongoose.Schema({
     type: Boolean,
     required: false,
   },
+  
 });
 const Userdata = mongoose.model("userdata", UserdataSchema);
 export default Userdata ;

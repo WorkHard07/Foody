@@ -23,7 +23,11 @@ export default {
 };
 </script>
 
-<style>
+<style scoped >
+html.md-theme-default.vuesax-app-is-ltr {
+   
+    background-color: black;
+}
 footer {
   
   padding-bottom: 30px;
@@ -31,6 +35,7 @@ footer {
   bottom: 0;
   width: 80%;
   font-family: 'Gloria Hallelujah', cursive;
+  
 }
 .content {
   position: absolute;
@@ -89,5 +94,9 @@ footer {
 .btn:hover {
   background-color: #9e0404;
   font-family: "Lucida Console", "Courier New", monospace;
+}
+.nav {
+    position: absolute;
+    left: 307px;
 }
 </style>

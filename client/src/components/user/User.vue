@@ -18,7 +18,9 @@
 </template>
 
 <script>
-import stars from './Stars.vue'
+
+// import stars from './stars.vue';
+
 class Post {
   constructor(title, location, img) {
     this.title = title;
@@ -28,17 +30,12 @@ class Post {
 }
 export default {
   name: "user",
-  components:{
-    stars
-  },
+  
   data: function() {
     return {
       search: "",
       postList: [
-        new Post( 
-          "Peppi panini ","Mourouj",
-          "https://peppipanini.ca/media/cache/99/92/9992978bac39c00276c2e5c5bc81bc95.png"
-        ),
+        
         new Post(
           "MCdonadls",
           "Menzah",
@@ -92,10 +89,9 @@ export default {
 };
 </script>
 
-<style lang="scss">
+<style lang="scss"  scoped>
 #title{
 font-family: 'Hanalei Fill', cursive;
-
     color:blanchedalmond ; 
 }
 html,
@@ -107,14 +103,13 @@ body {
   margin-top: 16px;
   margin-bottom: 16px;
 }
-
 body {
   background-image: url("https://cdn.wallpapersafari.com/12/28/mvfcT9.jpg");
   background-repeat: no-repeat;
   margin: top; 
   background-color: #8f1b1b;
+  width :112%;
 }
-
 input[type="text"] {
     width: 223px;
     height: 43px;
@@ -162,7 +157,6 @@ div#app {
       }
     }
   }
-
   .wrapper {
     display: flex;
 max-width: 601px;   
@@ -198,21 +192,17 @@ max-width: 601px;
       }
     }
   }
-
   input[type="text"] {
     position: absolute;
     left: -143px;
     top: -9px;
   }
-
   .hotpink {
     background: rgb(192, 0, 0);
   }
-
   .green {
     background: rgb(228, 168, 3);
   }
-
   .box {
     width: 100px;
     height: 100px;
