@@ -19,7 +19,7 @@
         :buy_data="buyitem"
         :key="index"
       />
-      <h5 v-if="total()">Sum: $ {{ total() }}</h5>
+      <h5 v-if="total()">Sum: TND {{ total() }}</h5>
       <div id="submit">
         <vs-button color="dark" type="line" @click="submitorder">
           Submit
@@ -108,6 +108,7 @@ body {
   background-color: rgb(239, 244, 255);
   font-family: calibri, sans-serif;
 }
+
 
 #app {
   width: 760px;

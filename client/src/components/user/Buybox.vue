@@ -2,12 +2,12 @@
   <div class="row">
     <img :src="'http://127.0.0.1:3000/images/' + this.buy_data.picture" />
     <h4>{{ buy_data.name }}</h4>
-    <p>$ {{ buy_data.price }}</p>
+    <p>TND {{ buy_data.price }}</p>
     <div class="qty-minus" v-on:click="minusQty(buy_data)">-</div>
     <div class="qty">{{ buy_data.qty }}</div>
     <div class="qty-plus" v-on:click="plusQty(buy_data)">+</div>
     <div class="del" v-on:click="removeItem(buy_data)">Remove</div>
-    <div class="totalprice">{{ buy_data.total }}</div>
+    <div class="totalprice">{{ buy_data.total }} TND</div>
   </div>
 </template>
 <script>

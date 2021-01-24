@@ -1,12 +1,12 @@
 <template>
   <div class="hello">
 
-    <vs-button   color="dark" type="line" @click="gosignin">Sign in </vs-button>
-    <img class="logos" id="pizza" src="../assets/pizza.png" width="95px" />
+  <vs-button color="warning" type="flat" @click="gosignin">Sign in </vs-button>
+    <!-- <img class="logos" id="pizza" src="../assets/pizza.png" width="95px" />
     <img class="logos" id="cake" src="../assets/cake.png" width="200px" />
     <img class="logos" id="sandwich" src="../assets/sandwich.png" width="130px" />
     <img class="logos" id="cake2" src="../assets/cake2.png" width="160px" />
-    <img class="logos" id="chicken" src="../assets/chicken.png" width="230px" />
+    <img class="logos" id="chicken" src="../assets/chicken.png" width="230px" /> -->
     <img id="restaurant" src="../assets/restaurent.png" width="300px" /> 
   <Partner/>
   <!-- <Footer/> -->
@@ -36,15 +36,15 @@ body {
   background-color: #f8b101;
 }
 .hello {
-  background-image: url("../assets/background3.png");
+  background-image: url("../assets/backgroundproject.png");
   background-repeat: no-repeat;
-  background-size: 85%;
+    background-size: 100%;
   height: 100vh;
+  background-color: black;
 }
-button.vs-component.vs-button.vs-button-dark.vs-button-line {
+button.vs-component.vs-button.vs-button-warning.vs-button-flat {
     position: absolute;
-    top: 7px;
-    left: 1441px;
+    left: 93%;
 }
 
 /* #signin{

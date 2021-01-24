@@ -27,10 +27,14 @@ h2 {
 }
 button#become {
     position: absolute;
-    top: 1045px;
+    top: 938px;
     left: 1059px;
 }
-
+img#restaurant {
+    position: absolute;
+    top: 731px;
+    left: 0px;
+}
 .h6{
     color:whitesmoke
 }
@@ -40,11 +44,7 @@ img#restaurant {
 h2{
     color: #e50100;
 }
-img#restaurant {
-    position: absolute;
- top: 730px;;
-    left: 0px;
-}
+
 h2{
     font-family: "Lucida Console", "Courier New", monospace;
 }

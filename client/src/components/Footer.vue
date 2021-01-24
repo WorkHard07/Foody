@@ -99,4 +99,9 @@ footer {
     position: absolute;
     left: 307px;
 }
+button#become {
+    position: absolute;
+    top: 1138px;
+    left: 1059px;
+}
 </style>

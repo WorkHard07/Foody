@@ -115,8 +115,13 @@ export default {
 </script>
 
 <style>
-body {
-  background-image: url("https://s1.1zoom.me/b6244/313/Fast_food_Hamburger_Hot_dog_Colored_background_523442_1920x1080.jpg");
+
+ body {
+  background-image: url (" ../assets/Restoback.png ") ;
+} 
+input[type="file"] {
+    position: absolute;
+    left: -6px;
 }
 body {
   margin: 0;
@@ -128,7 +133,6 @@ body {
   line-height: 1.5;
   color: #dc3545;
   text-align: left;
-  background-color: #fff;
 }
 .md-card-content {
   width: 411px;

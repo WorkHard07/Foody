@@ -104,26 +104,26 @@ export default {
 };
 </script>
 
-<style lang="scss" scoped>
+<style lang="scss"  >
 #title {
   font-family: "Hanalei Fill", cursive;
-  color: blanchedalmond;
+  color: rgb(134, 5, 5);
 }
-html,
-body {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-direction: column;
-  margin-top: 16px;
-  margin-bottom: 16px;
+html, body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    margin-top: 4px;
+    margin-bottom: 13px;
 }
 body {
-  background-image: url("https://cdn.wallpapersafari.com/12/28/mvfcT9.jpg");
+  background-image: url("https://gephardtdaily.com/wp-content/uploads/2015/01/fire-pizza.jpg");
   background-repeat: no-repeat;
-  margin: top;
-  background-color: #8f1b1b;
+  // margin: top;
   width: 112%;
+  background-size: 99%;
+  // background: black;
 }
 input[type="text"] {
   width: 223px;
@@ -154,9 +154,9 @@ div#app {
     input {
       padding: 4px 12px;
       color: rgba(0, 0, 0, 0.7);
-      border: 1px solid rgba(180, 7, 1, 0.979);
+      border: 1px solid rgba(119, 3, 3, 0.979);
       transition: 0.15s all ease-in-out;
-      background-color: #91573f;
+      background-color: #fffbfb;
       &:focus {
         outline: none;
         transform: scale(1.05);
@@ -193,7 +193,7 @@ div#app {
     a {
       text-decoration: none;
       padding: 12px;
-      color: #990404;
+      color: #000000;
       font-size: 24px;
       display: flex;
       flex-direction: column;
@@ -223,5 +223,10 @@ div#app {
     height: 100px;
     border: 1px solid rgba(0, 0, 0, 0.12);
   }
+}
+div#app input[type=text] {
+    position: absolute;
+    left: -116px;
+    top: -304px;
 }
 </style>
