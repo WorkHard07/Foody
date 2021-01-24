@@ -15,6 +15,10 @@ const orderSchema = new Schema({
     type: Schema.Types.ObjectId,
     ref: "order_owner",
   },
+  total:{
+    type:Number,
+    ref:"total"
+  }
 });
 
 export default mongoose.model("Orders", orderSchema);

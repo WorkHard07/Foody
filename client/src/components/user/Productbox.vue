@@ -40,7 +40,7 @@ export default {
         name: this.item_data.name,
         price: this.item_data.price,
         total: this.item_data.price,
-        id: this.item_data.id,
+        id: this.item_data._id,
         qty: 1,
       });
     },

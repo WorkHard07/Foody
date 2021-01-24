@@ -40,7 +40,7 @@ const storage = multer.diskStorage({
 // });
 /////----------------------------------/////
 app.use("/", usersRoutes);
-app.use("/api", menuRoutes);
+app.use("/api/", menuRoutes);
 app.use("/api/resto", Resto);
 app.use("/api/orders", order); // added
 

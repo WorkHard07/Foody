@@ -6,7 +6,9 @@ import multer from "multer";
 import path from "path";
 var upload = multer({ dest: "public/images" });
 const __dirname = path.resolve(path.dirname(""));
-
+import pkg from "mongodb";
+import { resolveSoa } from "dns";
+const { ObjectId } = pkg;
 const router = express.Router();
 router.get("/", (req, res) => {
   Menu.find({}, (err, menus) => {
@@ -43,13 +45,16 @@ router.delete("/:id", (req, res) => {
     res.json({ message: "deleted" });
   });
 });
-router.get("/:id", (req, res) => {
-  let menus = Menu.find({ resto: Resto.findById(req.params.id)._id }).exec();
-  if (!menus) {
-    return res.json({ message: "no menus  found !" });
-  } else {
-    return res.json(menus);
-  }
+router.get("/rm/:id", (req, res) => {
+  console.log("d5al");
+
+  console.log(req.params.id);
+  console.log(ObjectId(req.body.id));
+  Menu.find({ resto: req.params.id }, (err, menu) => {
+    console.log(menu);
+
+    return res.json(menu);
+  }).exec();
 });
 
 export default router;

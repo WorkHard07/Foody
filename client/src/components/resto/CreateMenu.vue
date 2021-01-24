@@ -29,7 +29,6 @@
             type="file"
             name="picture"
             accept="image/*"
-            
           />
           <!-- <md-file v-model="picture" accept="image/*" /> -->
         </md-field>
@@ -57,7 +56,11 @@
         <md-table-cell>{{ menu.name }}</md-table-cell>
         <md-table-cell>{{ menu.description }}</md-table-cell>
         <md-table-cell>
-          <img :src="'http://127.0.0.1:3000/images/'+menu.picture" class="menulogo" alt="picture" />
+          <img
+            :src="'http://127.0.0.1:3000/images/' + menu.picture"
+            class="menulogo"
+            alt="picture"
+          />
         </md-table-cell>
         <md-table-cell>{{ menu.price }}</md-table-cell>
         <md-table-cell>
@@ -90,7 +93,8 @@ export default {
       description: "",
       picture: "",
       price: "",
-      resto: document.cookie.split(",")[0].split("=")[1],
+      resto:document.cookie.split("=")[4].split(",")[0]
+,
 
       url: "http://localhost:3000/api/",
     };
@@ -110,7 +114,8 @@ export default {
     },
 
     async getAll() {
-      const res = await axios.get(this.url);
+      console.log(this.resto)
+      const res = await axios.get(this.url + "/rm/"+this.resto)
       this.menus = res.data;
       console.log(res.data);
 
@@ -131,7 +136,7 @@ export default {
     },
 
     async postMenu() {
-          const formData = new FormData();
+      const formData = new FormData();
       formData.append("cathegory", this.cathegory);
       formData.append("name", this.name);
       formData.append("description", this.description);
@@ -140,10 +145,10 @@ export default {
       formData.append("resto", this.resto);
       if (this.id == 0) {
         await axios.post(this.url, formData, {
-        headers: {
-          "Content-Type": `multipart/form-data; boundary=${formData._boundary}`,
-        },
-      });
+          headers: {
+            "Content-Type": `multipart/form-data; boundary=${formData._boundary}`,
+          },
+        });
         this.getAll();
       } else {
         await axios.put(`${this.url}/${this.id}`, {
@@ -188,8 +193,8 @@ li :hover {
   background-color: #111;
 }
 
-.menulogo{
-    width: 80px;
-    height: 80px;
+.menulogo {
+  width: 80px;
+  height: 80px;
 }
 </style>

@@ -65,8 +65,6 @@ export default {
     };
   },
   async created() {
-    console.log(this.url + "?id=" + this.$route.params.id);
-
     this.getallmenus();
   },
   name: "Menu",
@@ -77,7 +75,9 @@ export default {
   computed: mapState(["buyitems"]),
   methods: {
     getallmenus: async function() {
-      const res = await axios.get(this.url + "?id=" + this.$route.params.id);
+      console.log(this.$route.params.id);
+      const res = await axios.get(this.url + "rm/" + this.$route.params.id);
+
       this.menus = res.data;
       console.log(res.data);
     },
@@ -88,16 +88,20 @@ export default {
       });
       return sum;
     },
-    submitorder: function() {
+    submitorder: async function() {
       console.log(document.cookie);
       console.log(this.buyitems);
       let order = {
-        userid: document.cookie.split('=')[4].split(',')[0],
-        buyitems: this.buyitems,
+        orders_owner: document.cookie.split(",")[0].split("=")[1],
+        menus: this.buyitems,
         total: this.total(),
-        restoid:this.$route.params.id
+        resto: this.$route.params.id,
       };
       console.log(order);
+      const result = await axios.post(this.url + "orders/", {
+        order: order,
+      });
+      this.order = result.data;
     },
   },
 };
@@ -108,7 +112,6 @@ body {
   background-color: rgb(239, 244, 255);
   font-family: calibri, sans-serif;
 }
-
 
 #app {
   width: 760px;

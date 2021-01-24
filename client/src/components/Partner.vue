@@ -1,7 +1,7 @@
 <template>
 <div id="parag">
     
-               <vs-button id="become" color="warning" type="filled " @click="go">Become a partner</vs-button>
+               <vs-button  id="become" color="dark" type="gradient" @click="go">Become a partner</vs-button>
 
      </div>
 
