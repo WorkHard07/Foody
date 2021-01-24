@@ -19,7 +19,7 @@
       }}</md-table-cell>
 
       <md-table-cell v-if="resto.partner === 'none'">
-        <img :src="resto.picture" alt="picture" />
+        <img :src="'http://127.0.0.1:3000/images/'+resto.picture" alt="picture" class="picturelogo" />
       </md-table-cell>
 
       <md-table-cell v-if="resto.partner === 'none'">{{
@@ -90,3 +90,9 @@ export default {
   },
 };
 </script>
+<style scoped>
+.picturelogo{
+  height: 80px;
+  width: 80px;
+}
+</style>

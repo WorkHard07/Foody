@@ -34,6 +34,11 @@ const restoSchema = new Schema({
     type: Schema.Types.ObjectId,
     ref: "menus",
   }],
+  isowner: {
+    type: Boolean,
+    required: true,
+    default:true
+  },
 });
 
 export default mongoose.model("Resto", restoSchema);

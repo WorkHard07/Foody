@@ -20,7 +20,8 @@ const UserdataSchema = new mongoose.Schema({
   },
   isowner: {
     type: Boolean,
-    required: false,
+    required: true,
+    default:false
   },
   
 });

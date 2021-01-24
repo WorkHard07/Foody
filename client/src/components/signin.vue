@@ -66,20 +66,34 @@ export default {
       axios
         .post("http://localhost:3000/signin", user)
         .then((response) => {
-          console.log(response.data);
-          if (response.data) {
+          console.log(response.data.role);
+          if (response.data.role==="user") {
             console.log(response.data);
-            document.cookie = `username=${response.data.user._id},email=${response.data.user.Usermail}`;
+            document.cookie = `username=${response.data.user._id},role=${response.data.role}`;
             this.Useremail = "";
             this.Password = "";
             window.location.replace("/user");
+            return
+          } else if (response.data.role==="owner") {
+            if(response.data.resto.partner==="ok"){
+            document.cookie = `username=${response.data.resto._id},role=${response.data.role}`;
+            this.Useremail = "";
+            this.Password = "";
+            window.location.replace("/restohome");
+            return
+          }else{
+            alert("account waiting for activation");
+          }
+
+          
           }
         })
         .catch((error) => {
+                    console.log(error);
+
           this.useremail = "";
           this.password = "";
           alert("your informations are wrong please check your inputs");
-          console.log(error);
         });
       // if(user.data){
       //                 document.cookie = `username=${user.data._id},${user.data.useremail}`

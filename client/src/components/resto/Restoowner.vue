@@ -1,7 +1,7 @@
 <template>
   <div>
     <md-card>
-      <md-card-content>
+      <md-card-content enctype="multipart/form-data">
         <md-field>
           <label for="address">address</label>
           <md-select v-model="address" name="address" id="cathegory">
@@ -25,7 +25,16 @@
 
         <md-field>
           <label> picture </label>
-          <md-file v-model="picture" accept="image/*" />
+          <img style="" :src="image" alt="" />
+          <form action="upload/post" enctype="multipart/form-data">
+
+            <input
+              @change="handleImage"
+              type="file"
+              name="image"
+              accept="image/*"
+            />
+          </form>
         </md-field>
 
         <md-field>
@@ -59,7 +68,8 @@ export default {
       address: "",
       email: "",
       password: "",
-      url: "http://localhost:3000/api/resto",
+      url: "http://localhost:3000/api/resto/",
+      image: "",
     };
   },
 
@@ -68,6 +78,11 @@ export default {
   },
 
   methods: {
+    handleImage(e) {
+      const selectImage = e.target.files[0];
+      this.image = selectImage;
+    },
+
     async clearAll() {
       (this.name = ""),
         (this.restaurantName = ""),
@@ -78,14 +93,19 @@ export default {
     },
 
     async postResto() {
-      console.log(this.url);
-      await axios.post(this.url, {
-        name: this.name,
-        restaurantName: this.restaurantName,
-        picture: this.picture,
-        address: this.address,
-        email: this.email,
-        password: this.password,
+      const formData = new FormData();
+      formData.append("image", this.image);
+      formData.append("name", this.name);
+      formData.append("restaurantName", this.restaurantName);
+      formData.append("address", this.address);
+      formData.append("email", this.email);
+      formData.append("password", this.password);
+      console.log(formData.getAll("image")[0]);
+
+      await axios.post(this.url, formData, {
+        headers: {
+          "Content-Type": `multipart/form-data; boundary=${formData._boundary}`,
+        },
       });
 
       this.clearAll();
@@ -94,28 +114,29 @@ export default {
 };
 </script>
 
-<style   >
-body{
-    background-image: url("https://s1.1zoom.me/b6244/313/Fast_food_Hamburger_Hot_dog_Colored_background_523442_1920x1080.jpg");
-
+<style>
+body {
+  background-image: url("https://s1.1zoom.me/b6244/313/Fast_food_Hamburger_Hot_dog_Colored_background_523442_1920x1080.jpg");
 }
 body {
-    margin: 0;
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
-    font-size: 1rem;
-    font-weight: 400;
-    line-height: 1.5;
-    color: #dc3545;
-    text-align: left;
-    background-color: #fff;
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji",
+    "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.5;
+  color: #dc3545;
+  text-align: left;
+  background-color: #fff;
 }
 .md-card-content {
-    width: 411px;
-    height: -69px;
+  width: 411px;
+  height: -69px;
 }
 .md-card-content {
-    position: absolute;
-    top: 101px;
-    left: 491px;
+  position: absolute;
+  top: 101px;
+  left: 491px;
 }
 </style>

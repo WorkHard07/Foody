@@ -1,26 +1,27 @@
 import bcrypt from "bcrypt";
 import Resto from "../models/resto.model.js";
+import path from "path";
 
-const restosignup = async (req, res) => {
-  var restowner = await Resto.findOne({ email: req.body.email }).exec();
+const __dirname = path.resolve(path.dirname(""));
+
+const restosignup = async function (restowner) {
+  var restowner = await Resto.findOne({ email: restowner.email }).exec();
   console.log(restowner);
-  console.log(req);
 
   if (restowner) {
     return res.status(400).send({ message: "the email already exist !" });
   } else {
     const salt = bcrypt.genSaltSync(10);
     console.log(salt);
-
     const resto = new Resto({
-      name: req.body.name,
-      restaurantName: req.body.restaurantName,
-      picture: req.body.picture,
-      address: req.body.address,
-      email: req.body.email,
+      name: restowner.name,
+      restaurantName: restowner.restaurantName,
+      picture: restowner.picture,
+      address: restowner.address,
 
-      password: bcrypt.hashSync(req.body.password, salt),
+      password: bcrypt.hashSync(restowner.password, salt),
     });
+
     resto.save(() => {
       res.json(resto);
     });
@@ -37,6 +38,15 @@ const getallpendingrestos = async (req, res) => {
   }
 };
 
+const getallacceptedrestos = async (req, res) => {
+  var restos = await Resto.find({ partner: "ok" }).exec();
+  console.log(restos);
+  if (!restos) {
+    return res.json({ message: "no accepted restos found !" });
+  } else {
+    return res.json(restos );
+  }
+};
 const acceptresto = async (req, res) => {
   let id = req.body.id;
   console.log(id);
@@ -49,4 +59,9 @@ const acceptresto = async (req, res) => {
   });
 };
 
-export default { restosignup, getallpendingrestos, acceptresto };
+export default {
+  restosignup,
+  getallpendingrestos,
+  acceptresto,
+  getallacceptedrestos,
+};

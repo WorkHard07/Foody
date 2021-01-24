@@ -2,7 +2,7 @@
   <div id="menu">
     <div id="product">
       <Productbox
-        v-for="(item, index) in items"
+        v-for="(item, index) in menus"
         :item_data="item"
         :key="index"
       />
@@ -11,8 +11,8 @@
       <div id="head">
         <h3>Shopping Cart</h3>
         <div class="p" id="price">Price</div>
-        <div  class="p" id="quantity">Quantity</div>
-        <div  class="p" id="total">Total</div>
+        <div class="p" id="quantity">Quantity</div>
+        <div class="p" id="total">Total</div>
       </div>
       <Buybox
         v-for="(buyitem, index) in buyitems"
@@ -21,8 +21,9 @@
       />
       <h5 v-if="total()">Sum: $ {{ total() }}</h5>
       <div id="submit">
-            <vs-button   color="dark" type="line" @click="submitorder" > Submit </vs-button>
-
+        <vs-button color="dark" type="line" @click="submitorder">
+          Submit
+        </vs-button>
       </div>
     </div>
   </div>
@@ -32,10 +33,15 @@ import { mapState } from "vuex";
 import Buybox from "./Buybox.vue";
 import Productbox from "./Productbox.vue";
 import { items } from "./dummydata.js";
+import axios from "axios";
+
 export default {
   data: () => {
     return {
       items: items,
+      menus: [],
+      url: "http://localhost:3000/api/",
+
       //  items: [ ],
       //   {
       //     img: "https://i.imgur.com/jg6kc30.jpg",
@@ -58,6 +64,11 @@ export default {
       // ],
     };
   },
+  async created() {
+    console.log(this.url + "?id=" + this.$route.params.id);
+
+    this.getallmenus();
+  },
   name: "Menu",
   components: {
     Productbox,
@@ -65,6 +76,11 @@ export default {
   },
   computed: mapState(["buyitems"]),
   methods: {
+    getallmenus: async function() {
+      const res = await axios.get(this.url + "?id=" + this.$route.params.id);
+      this.menus = res.data;
+      console.log(res.data);
+    },
     total: function() {
       var sum = 0;
       this.buyitems.forEach(function(buyitem) {
@@ -76,25 +92,21 @@ export default {
       console.log(document.cookie);
       console.log(this.buyitems);
       let order = {
-        userid: document.cookie
-          .split(", ")
-          .find((row) => row.startsWith("username"))
-          .split(",")[0]
-          .split("=")[1],
+        userid: document.cookie.split('=')[4].split(',')[0],
         buyitems: this.buyitems,
         total: this.total(),
+        restoid:this.$route.params.id
       };
       console.log(order);
     },
   },
 };
 </script>
-<style lang="scss" >
+<style lang="scss">
 html,
 body {
   background-color: rgb(239, 244, 255);
   font-family: calibri, sans-serif;
-
 }
 
 #app {
@@ -135,7 +147,7 @@ body {
       h2 {
         margin-left: 20px;
       }
-      h2{
+      h2 {
         color: rgb(138, 3, 3);
       }
       p {

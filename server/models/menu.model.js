@@ -26,6 +26,7 @@ const menuSchema = new Schema({
   resto: {
     type: Schema.Types.ObjectId,
     ref: "resto",
+    required:true
   },
 });
 

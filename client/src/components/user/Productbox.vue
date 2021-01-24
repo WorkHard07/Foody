@@ -1,49 +1,47 @@
-
 <template id="Productbox">
   <div class="box">
-    <img :src="item_data.img"/>
+    <img :src="'http://127.0.0.1:3000/images/'+item_data.picture" />
     <div class="plus">
-    <b-icon icon="plus" class="fa fa-plus" v-on:click="addItem(item_data)"/>
+      <b-icon icon="plus" class="fa fa-plus" v-on:click="addItem(item_data)" />
     </div>
-    <h2>{{item_data.title}}</h2>
-    <p>TND {{item_data.price}}</p>
+    <h2>{{ item_data.name }}</h2>
+    <p>TND {{ item_data.price }}</p>
   </div>
 </template>
 
 <script>
-
 export default {
-  
-  name:"Productbox",
-  template:"#Productbox",
+  name: "Productbox",
+  template: "#Productbox",
   props: ["item_data"],
 
   methods: {
-    
     addItem: function(item_data) {
-      var i ;
-     
-      console.log(this.$store.state)
-      if (this.findIndex(this.$store.state.buyitems,"id",item_data.id)===-1) {
-  
-          this.pushData();
+      var i;
 
-        } else {
-           i = this.findIndex(this.$store.state.buyitems, "id", item_data.id);
-          this.$store.state.buyitems[i].qty += 1;
-          this.$store.state.buyitems[i].total = this.$store.state.buyitems[i].qty*this.$store.state.buyitems[i].price;
-          console.log(i);
-        }
-    
+      console.log(this.$store.state);
+      if (
+        this.findIndex(this.$store.state.buyitems, "id", item_data.id) === -1
+      ) {
+        this.pushData();
+      } else {
+        i = this.findIndex(this.$store.state.buyitems, "id", item_data.id);
+        this.$store.state.buyitems[i].qty += 1;
+        this.$store.state.buyitems[i].total =
+          this.$store.state.buyitems[i].qty *
+          this.$store.state.buyitems[i].price;
+        console.log(i);
+      }
     },
     pushData: function() {
+
       this.$store.state.buyitems.push({
-        img: this.item_data.img,
-        title: this.item_data.title,
+        picture: this.item_data.picture,
+        name: this.item_data.name,
         price: this.item_data.price,
         total: this.item_data.price,
         id: this.item_data.id,
-        qty:1
+        qty: 1,
       });
     },
     findIndex: function(array, attr, value) {
@@ -54,9 +52,7 @@ export default {
       }
       return -1;
     },
-  }
+  },
 };
 </script>
-<style scoped>
-
-</style>
+<style scoped></style>

@@ -32,7 +32,7 @@ export default new Router({
      },
     
      {
-      path: "/menu",
+      path: "/menu/:id",
       name: "menu",
       component: () => import("../components/user/Menu.vue"),
     },
