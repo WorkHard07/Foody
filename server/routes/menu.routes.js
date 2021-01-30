@@ -1,3 +1,4 @@
+
 import express from "express";
 import Menu from "../models/menu.model.js";
 import Resto from "../models/resto.model.js";
@@ -15,6 +16,13 @@ router.get("/", (req, res) => {
     res.json(menus);
   });
 });
+router.get("/menu/:id", async (req, res) => {
+  console.log(req.params.id);
+  var menu = await Menu.findById(req.params.id).exec();
+
+  res.send(menu);
+});
+
 router.post("/", upload.single("picture"), (req, res) => {
   var menu = new Menu({
     cathegory: req.body.cathegory,
@@ -46,7 +54,7 @@ router.delete("/:id", (req, res) => {
   });
 });
 router.get("/rm/:id", (req, res) => {
-  console.log("d5al");
+  console.log("aaaaa");
 
   console.log(req.params.id);
   console.log(ObjectId(req.body.id));

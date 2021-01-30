@@ -11,14 +11,22 @@ const orderSchema = new Schema({
     type: Schema.Types.ObjectId,
     ref: "resto",
   },
+  userName: {
+    type: String,
+  },
+  deliveryAddress:{
+    type:String,
+  },
   user: {
     type: Schema.Types.ObjectId,
     ref: "order_owner",
   },
-  total:{
-    type:Number,
-    ref:"total"
+  total: {
+    type: Number,
+    ref: "total",
+  },
+  phoneNumber: {
+    type: Number,
   }
 });
-
 export default mongoose.model("Orders", orderSchema);

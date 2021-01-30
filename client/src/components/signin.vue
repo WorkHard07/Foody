@@ -24,6 +24,8 @@
           <input type="text" placeholder="Name" v-model="Username" />
           <input type="email" placeholder="Email" v-model="Useremail" />
           <input type="password" placeholder="Password" v-model="Password" />
+                    <!-- <input type="phone" placeholder="Your phone number" v-model="Phone" /> -->
+
           <button @click="create">Sign Up</button>
         </form>
         <form class="sign-in">
@@ -47,6 +49,7 @@ export default {
       Username: "",
       Useremail: "",
       Password: "",
+      // Phone:"",
     };
   },
   methods: {
@@ -55,6 +58,8 @@ export default {
         Usermail: this.Useremail,
         Username: this.Username,
         Password: this.Password,
+        // Phone:this.Phone,
+
       };
       axios.post("http://localhost:3000/signup", user);
     },
@@ -74,7 +79,13 @@ export default {
             this.Password = "";
             window.location.replace("/user");
             return
-          } else if (response.data.role==="owner") {
+          }
+           else if (response.data.role==="admin") {
+            document.cookie = `username=${response.data.user._id},role=${response.data.role}`;
+            this.Useremail = "";
+            this.Password = "";
+            window.location.replace("/admin"); }
+          else if (response.data.role==="owner") {
             if(response.data.resto.partner==="ok"){
             document.cookie = `username=${response.data.resto._id},role=${response.data.role}`;
             this.Useremail = "";
@@ -85,7 +96,7 @@ export default {
             alert("account waiting for activation");
           }
 
-          
+
           }
         })
         .catch((error) => {

@@ -18,7 +18,6 @@ const menuSchema = new Schema({
     type: String,
     required: true,
   },
-
   price: {
     type: Number,
     required: true,
@@ -26,8 +25,8 @@ const menuSchema = new Schema({
   resto: {
     type: Schema.Types.ObjectId,
     ref: "resto",
-    required:true
+    required: true,
   },
 });
 
-export default mongoose.model("Menu", menuSchema);
+export default mongoose.model("menu", menuSchema);

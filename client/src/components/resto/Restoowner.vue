@@ -12,13 +12,13 @@
           </md-select>
         </md-field>
         <md-field>
-          <md-input type="text" v-model="name" placeholder="name"> </md-input>
+          <md-input type="text" v-model="name" placeholder="Restaurent"> </md-input>
         </md-field>
         <md-field>
           <md-input
             type="text"
             v-model="restaurantName"
-            placeholder="restaurantName"
+            placeholder="UserName"
           >
           </md-input>
         </md-field>

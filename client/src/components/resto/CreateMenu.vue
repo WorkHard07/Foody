@@ -1,7 +1,9 @@
 <template>
   <div>
     <ul>
-      <li @click="gomenu">Orders</li>
+                       <vs-button id="logosignout" line-position="top" line-origin="left" color="warning" type="line">Logout</vs-button>
+
+      <li  @click="gomenu">Orders</li> <img id="logo" src="https://i.imgur.com/kfoJT37.png" width="50px">
     </ul>
     <md-card>
       <md-card-content>
@@ -30,7 +32,6 @@
             name="picture"
             accept="image/*"
           />
-          <!-- <md-file v-model="picture" accept="image/*" /> -->
         </md-field>
         <md-field>
           <md-input v-model="price" placeholder="price"> </md-input>
@@ -52,15 +53,13 @@
       </md-table-row>
 
       <md-table-row v-for="(menu, index) in menus" :key="index">
-        <md-table-cell>{{ menu.cathegory }}</md-table-cell>
-        <md-table-cell>{{ menu.name }}</md-table-cell>
-        <md-table-cell>{{ menu.description }}</md-table-cell>
+        <md-table-cell><h5 class="up">{{ menu.cathegory }}</h5></md-table-cell>
+        <md-table-cell><h5  class="up">{{ menu.name }}</h5></md-table-cell>
+        <md-table-cell><h5  class="up">{{ menu.description }}</h5></md-table-cell>
         <md-table-cell>
-          <img
-            :src="'http://127.0.0.1:3000/images/' + menu.picture"
+          <img :src="'http://127.0.0.1:3000/images/' + menu.picture"
             class="menulogo"
-            alt="picture"
-          />
+            alt="picture"/>
         </md-table-cell>
         <md-table-cell>{{ menu.price }}</md-table-cell>
         <md-table-cell>
@@ -84,7 +83,7 @@ import axios from "axios";
 export default {
   name: "CreateMenu",
 
-  data() {
+  data: () => {
     return {
       menus: [],
       id: 0,
@@ -93,14 +92,23 @@ export default {
       description: "",
       picture: "",
       price: "",
-      resto:document.cookie.split("=")[4].split(",")[0]
-,
-
-      url: "http://localhost:3000/api/",
+      resto: "",
+      url: "",
     };
   },
-  async created() {
-    this.getAll();
+  async beforeMount() {
+    this.resto = document.cookie.split("=")[1].split(",")[0];
+    this.url = "http://localhost:3000/api/"
+    console.log(this.url + "rm/" + this.resto);
+    const res = await axios.get(this.url + "rm/" + this.resto);
+    this.menus = res.data;
+    console.log(res.data);
+    this.id = 0;
+    this.cathegory = "";
+    this.name = "";
+    this.description = "";
+    this.picture = "";
+    this.price = "";
   },
   methods: {
     handleImage(e) {
@@ -113,19 +121,6 @@ export default {
       this.$router.push("/restohome");
     },
 
-    async getAll() {
-      console.log(this.resto)
-      const res = await axios.get(this.url + "/rm/"+this.resto)
-      this.menus = res.data;
-      console.log(res.data);
-
-      (this.id = 0),
-        (this.cathegory = ""),
-        (this.name = ""),
-        (this.description = ""),
-        (this.picture = ""),
-        (this.price = "");
-    },
     async getOne(menu) {
       this.id = menu._id;
       this.cathegory = menu.cathegory;
@@ -174,8 +169,7 @@ ul {
   margin: 0;
   padding: 0;
   overflow: hidden;
-  background-color: #333;
-}
+ background-color: rgb(100, 1, 1);}
 
 li {
   float: left;
@@ -188,13 +182,26 @@ li {
   padding: 14px 16px;
   text-decoration: none;
 }
-
-li :hover {
-  background-color: #111;
+img#logo {
+    position: absolute;
+    left: 1458px;
 }
-
+li :hover {
+  background-color: rgb(112, 4, 4);
+}
+ .up{
+ font-family: 'Rye', cursive;
+}
+.md-table-head-label {
+    color: rgb(129, 4, 4);
+}
 .menulogo {
   width: 80px;
   height: 80px;
+}
+#logosignout {
+    position: absolute;
+    top: 10px;
+    left: 1350px;
 }
 </style>

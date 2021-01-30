@@ -16,14 +16,14 @@ const UserdataSchema = new mongoose.Schema({
   },
   isadmin: {
     type: Boolean,
-    required: false,
+    default:false
+
   },
   isowner: {
     type: Boolean,
     required: true,
     default:false
-  },
-  
+  },  
 });
 const Userdata = mongoose.model("userdata", UserdataSchema);
 export default Userdata ;

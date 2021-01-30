@@ -4,7 +4,7 @@
     <div class="plus">
       <b-icon icon="plus" class="fa fa-plus" v-on:click="addItem(item_data)" />
     </div>
-    <h2>{{ item_data.name }}</h2>
+    <h2 class="mekla">{{ item_data.name }}</h2>
     <p>TND {{ item_data.price }}</p>
   </div>
 </template>
